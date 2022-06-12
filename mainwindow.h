@@ -6,7 +6,6 @@
 #include "diet.h"
 #include "mydataset.h"
 #include "basket.h"
-#include "favourites.h"
 
 #include <QMainWindow>
 #include <QMessageBox>
@@ -14,6 +13,7 @@
 #include <QLabel>
 #include <QGridLayout>
 #include <QFileDialog>
+#include <QMenu>
 
 
 QT_BEGIN_NAMESPACE
@@ -43,11 +43,12 @@ private slots:
 
     void on_pushButton_confirm_clicked();
 
+    void addToFavourites();
+
+    void on_tableView_customContextMenuRequested(const QPoint &pos);
+
 private:
     Ui::MainWindow *ui;
-//    Cuisines *cuisines;
-//    Diet *diet;
-
 
 protected:
     Dishes* _dishes;
@@ -56,7 +57,6 @@ protected:
     Diet* _diet;
     Basket* _basket;
     QMenu* _menu;
-    Favourites* _favourites;
 //    QStringListModel* _model;
 };
 #endif // MAINWINDOW_H

@@ -2,7 +2,6 @@
 
 Dishes::Dishes()
 {
-
 }
 
 int Dishes::getRow()
@@ -26,12 +25,6 @@ bool Dishes::loadFile(QFile& file)
         QString fileLine = in.readLine();
 
         _headers = fileLine.split(";", Qt::SkipEmptyParts);
-//        QList<QVariant> headers;
-//        for(QString val : _headers)
-//        {
-//            headers.append(val);
-//        }
-//        _storage.append(headers);
 
         while (!in.atEnd())
         {
@@ -51,22 +44,24 @@ bool Dishes::loadFile(QFile& file)
     return false;
 }
 
+
 QVariant Dishes::getFavourites(const QModelIndex& index)
 {
-    return _favourites.values().at(index.row()).at(index.column());
+    return _favourites.at(index.row()).at(index.column());//values().at(index.row()).at(index.column());
 }
 
 void Dishes::addToFavourites(size_t index)
 {
     QList<QVariant> dish = _storage.at(index - 1);
-    _favourites.insert(dish);
+    _favourites.append(dish);
 }
 
-void Dishes::deleteDish(QString dishName)
-{
-    for (QList<QVariant>& dish : _storage)
-    {
-        if (dish[0] == dishName)
-            _storage.erase(&dish);
-    }
-}
+//void Dishes::deleteDish(QString dishName)
+//{
+//    for (QList<QVariant>& dish : _storage)
+//    {
+//        if (dish[0] == dishName)
+//            _storage.erase(&dish);
+//    }
+//}
+
