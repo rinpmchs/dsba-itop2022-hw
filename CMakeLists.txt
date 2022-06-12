@@ -30,14 +30,13 @@ set(PROJECT_SOURCES
         diet.ui
         mydataset.h
         mydataset.cpp
-#        datatablewindow.h
-#        datatablewindow.cpp
-#        datatablewindow.ui
         basket.h
         basket.cpp
         basket.ui
         myfiltermodel.h
         myfiltermodel.cpp
+        favourites.h
+        favourites.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

@@ -6,6 +6,7 @@
 #include "diet.h"
 #include "mydataset.h"
 #include "basket.h"
+#include "favourites.h"
 
 #include <QMainWindow>
 #include <QMessageBox>
@@ -54,6 +55,8 @@ protected:
     Cuisines* _cuisines;
     Diet* _diet;
     Basket* _basket;
+    QMenu* _menu;
+    Favourites* _favourites;
 //    QStringListModel* _model;
 };
 #endif // MAINWINDOW_H

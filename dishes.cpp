@@ -1,27 +1,9 @@
 #include "dishes.h"
 
-Dishes::Dishes()//QObject *parent) // QStringListModel* model,
-//    : QObject{parent}
-//    , _model{model}
+Dishes::Dishes()
 {
 
 }
-
-
-//void Dish::fillData(const QStringList& details)
-//{
-//    if (details.size() < 0)
-//        throw std::invalid_argument("Invalid player description");
-////    recipe_title = (QString)details[0];
-//    url = (QString)details[1];
-//    rating = details[2].toInt();
-//    cuisine = (QString)details[3];//.toChar();
-//    course = (QString)details[4];
-//    diet = (QString)details[5];
-////    prep_time = (int)details[6];
-////    cook_time = (int)details[7];
-////    ingredients = (QString)details[8];
-//}
 
 int Dishes::getRow()
 {
@@ -67,4 +49,24 @@ bool Dishes::loadFile(QFile& file)
         return true;
     }
     return false;
+}
+
+QVariant Dishes::getFavourites(const QModelIndex& index)
+{
+    return _favourites.values().at(index.row()).at(index.column());
+}
+
+void Dishes::addToFavourites(size_t index)
+{
+    QList<QVariant> dish = _storage.at(index - 1);
+    _favourites.insert(dish);
+}
+
+void Dishes::deleteDish(QString dishName)
+{
+    for (QList<QVariant>& dish : _storage)
+    {
+        if (dish[0] == dishName)
+            _storage.erase(&dish);
+    }
 }

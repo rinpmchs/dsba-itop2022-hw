@@ -9,6 +9,9 @@
 #include <QMessageBox>
 #include <QStringList>
 #include <QTextStream>
+#include <QStandardItem>
+#include <QTextStream>
+
 
 enum class DishFields
 {
@@ -58,11 +61,33 @@ public:
     int getRow();
     int getColumn();
 
+    void addToFavourites(size_t);
+    void deleteDish(QString);
+    QVariant getFavourites(const QModelIndex& index);
+
 protected:
 //    QList<Dish>* _dishes;
     QStringList _headers = {}; //QList<QVariant>
     QList<QList<QVariant>> _storage; // QList<QStringList>
+    QSet<QList<QVariant>> _favourites;
 
 };
+
+inline bool operator==(const QList<const QVariant>& dish1, const QList<const QVariant>& dish2)
+{
+    return dish1[0] == dish2[0];
+}
+
+inline uint qHash(const QVariant& dish){ return qHash(dish); }
+//{
+//    return qHash((dish[0], seed);
+//}
+
+
+//inline QHash<QString, QVariant> qHash(const QList<QVariant>&  dish)
+//{
+//    return dish[0].toHash();
+//}
+
 
 #endif // DISHES_H

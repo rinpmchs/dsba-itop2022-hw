@@ -1,18 +1,15 @@
-#ifndef MYDATASET_H
-#define MYDATASET_H
+#ifndef FAVOURITES_H
+#define FAVOURITES_H
 
 #include "dishes.h"
 
 #include <QAbstractTableModel>
 
-class MyDataset: public QAbstractTableModel
+class Favourites : public QAbstractTableModel
 {
 public:
-    MyDataset();
-    explicit MyDataset(Dishes* dishes, QObject* parent = nullptr);
-//test
-
-public:
+    Favourites();
+    explicit Favourites(Dishes* dishes, QObject* parent = nullptr);
 
 private:
     Dishes* _dishes;
@@ -29,4 +26,4 @@ public:
     QVariant getValueAtIndex(const QModelIndex& indx) { return _dishes->getVal(indx); };
 };
 
-#endif // MYDATASET_H
+#endif // FAVOURITES_H
