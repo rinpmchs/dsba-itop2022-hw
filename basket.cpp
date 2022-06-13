@@ -11,7 +11,6 @@ Basket::Basket(MyDataset* mydataset, QWidget *parent)
 
     _proxyModel->setSourceModel(mydataset);
     ui->tableView->setModel(_proxyModel);
-//    ui->tableView->verticalHeader()
 
     _proxyModel->layoutAboutToBeChanged();
     _proxyModel->setFilterKeyColumn(1);

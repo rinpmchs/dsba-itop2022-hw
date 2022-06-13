@@ -40,8 +40,8 @@ public:
     int getRow();
     int getColumn();
 
-    void addToFavourites(int selected);//const QModelIndexList& selectedList);//const QModelIndex& );
-    void deleteFromFavourites(int selected);//const QModelIndexList& dish);
+    void addToFavourites(int selected);
+    void deleteFromFavourites(int selected);
     QVariant getFavourites(const QModelIndex& index);
 
 protected:

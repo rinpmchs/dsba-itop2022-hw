@@ -28,12 +28,3 @@ QVariant Favourites::data(const QModelIndex &index, int role) const
     else
         return QVariant();
 }
-
-//QVariant Favourites::headerData(int section, Qt::Orientation orientation, int role) const
-//{
-//    if (role == Qt::DisplayRole && orientation == Qt::Horizontal)
-//        {
-//            return _dishes->getHeaders().at(section);
-//        }
-//    return QVariant();
-//}
