@@ -1,11 +1,6 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
-#include "cuisines.h"
-#include "dishes.h"
-#include "diet.h"
-#include "mydataset.h"
 #include "datatablewindow.h"
-#include "basket.h"
 
 #include <QFile>
 
@@ -15,6 +10,7 @@ MainWindow::MainWindow(QWidget *parent)
     , _dishes(new Dishes())//(this))
     , _mydataset(new MyDataset(_dishes, this))
     , _menu(new QMenu(this))
+    , _favourites(new Favourites(_dishes, this))
 {
     ui->setupUi(this);
 
@@ -23,14 +19,27 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->tableView->setContextMenuPolicy(Qt::CustomContextMenu);
     QAction* addToFavourites = new QAction("add to favourites", this);
-//    QAction* deleteDish = new QAction("delete dish", this);
     connect(addToFavourites, SIGNAL(triggered()), this, SLOT(addToFavourites()));
-//    connect(deleteDish, SIGNAL(triggered()), this, SLOT(deleteDish()));
     _menu->addAction(addToFavourites);
-//    _menu->addAction(deleteDish);
 
     connect(ui->tableView, SIGNAL(customContextMenuRequested(QPoint)), this,
                 SLOT(on_tableView_customContextMenuRequested(QPoint)));
+
+
+
+    ui->table_favourites->setModel(_favourites);
+    ui->table_favourites->verticalHeader()->setVisible(false);
+    ui->table_favourites->horizontalHeader()->setVisible(false);
+
+    ui->table_favourites->setContextMenuPolicy(Qt::CustomContextMenu);
+    QAction* deleteDish = new QAction("delete from favourites", this);
+    connect(deleteDish, SIGNAL(triggered()), this, SLOT(deleteDish()));
+    _menu->addAction(deleteDish);
+
+    connect(ui->table_favourites, SIGNAL(customContextMenuRequested(QPoint)), this,
+                SLOT(on_table_favourites_customContextMenuRequested(QPoint)));
+
+
 }
 
 MainWindow::~MainWindow()
@@ -41,9 +50,8 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_help_clicked()
 {
-    QMessageBox msgBox;
-    msgBox.setText("here's help");
-    msgBox.exec();
+    _about = new About;
+    _about->show();
 }
 
 
@@ -51,7 +59,7 @@ void MainWindow::on_pushButton_cuisinesInfo_clicked()
 {
 //    Cuisines cuisines;
 //    cuisines.exec();
-    _cuisines = new Cuisines;
+    _cuisines = new Cuisines(_dishes);
     _cuisines->show();
 }
 
@@ -72,7 +80,6 @@ void MainWindow::on_actionopen_file_triggered()
 
     _mydataset->layoutAboutToBeChanged();
     _dishes->loadFile(file);
-//    ui->tableView->setModel(_mydataset);
     _mydataset->layoutChanged();
 }
 
@@ -84,27 +91,44 @@ void MainWindow::on_pushButton_confirm_clicked()
 
 void MainWindow::addToFavourites()
 {
-    QPoint p = ui->tableView->mapFromGlobal(QCursor::pos());
-    size_t index = ui->tableView->indexAt(QPoint(p.x(), p.y())).row() - 1;
-    _dishes->addToFavourites(index);
-    // qDebug() << index;
+    _favourites->layoutAboutToBeChanged();
+    int selected = ui->tableView->currentIndex().row();
+    _dishes->addToFavourites(selected);
+    _favourites->layoutChanged();
 }
 
-//void MainWindow::editPlayer()
-//{
-//    size_t index = ui->tableView->selectionModel()->selectedRows().at(0).row();
-//    size_t id = _storage->getPlayer(index).id;
-//}
-
-//void MainWindow::deleteDish()
-//{
-//    size_t index = ui->tableView->selectionModel()->selectedRows().at(0).row();
-//    size_t id = _dishes->getDish(index).id;
-//    _dishes->deleteDish(id);
-//}
+void MainWindow::deleteDish()
+{
+    int selected = ui->table_favourites->currentIndex().row();
+    _favourites->layoutAboutToBeChanged();
+    _dishes->deleteFromFavourites(selected);
+    _favourites->layoutChanged();
+}
 
 void MainWindow::on_tableView_customContextMenuRequested(const QPoint &pos)
 {
     _menu->popup(ui->tableView->viewport()->mapToGlobal(pos));
 }
 
+void MainWindow::on_table_favourites_customContextMenuRequested(const QPoint &pos)
+{
+    _menu->popup(ui->table_favourites->viewport()->mapToGlobal(pos));
+}
+
+
+void MainWindow::on_tableView_doubleClicked(const QModelIndex &index)
+{
+    int row = index.row();
+    _favourites->layoutAboutToBeChanged();
+    _dishes->addToFavourites(row);
+    _favourites->layoutChanged();
+}
+
+
+void MainWindow::on_table_favourites_doubleClicked(const QModelIndex &index)
+{
+    int row = index.row();
+    _favourites->layoutAboutToBeChanged();
+    _dishes->deleteFromFavourites(row);
+    _favourites->layoutChanged();
+}

@@ -35,18 +35,20 @@ public:
     bool loadFile(QFile& file);
     QVariant getVal(const QModelIndex& indx) { return _storage.at(indx.row()).at(indx.column()); }
     QStringList getHeaders() { return _headers; };
+    QList<QList<QVariant>> getFavourites() { return _favourites; };
+    QSet<QString> getCuisines() { return _cuisines; };
     int getRow();
     int getColumn();
 
-    void addToFavourites(size_t);
-//    void deleteDish(QString);
+    void addToFavourites(int selected);//const QModelIndexList& selectedList);//const QModelIndex& );
+    void deleteFromFavourites(int selected);//const QModelIndexList& dish);
     QVariant getFavourites(const QModelIndex& index);
 
 protected:
-//    QList<Dish>* _dishes;
-    QStringList _headers = {}; //QList<QVariant>
-    QList<QList<QVariant>> _storage; // QList<QStringList>
+    QStringList _headers = {};
+    QList<QList<QVariant>> _storage;
     QList<QList<QVariant>> _favourites;
+    QSet<QString> _cuisines;
 
 };
 

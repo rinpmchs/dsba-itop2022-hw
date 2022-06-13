@@ -6,6 +6,8 @@
 #include "diet.h"
 #include "mydataset.h"
 #include "basket.h"
+#include "favourites.h"
+#include "about.h"
 
 #include <QMainWindow>
 #include <QMessageBox>
@@ -29,6 +31,7 @@ public:
     ~MainWindow();
 
     MyDataset* getMyDataset() { return _mydataset; }
+    Favourites* getFavourites() { return _favourites; }
 
 private slots:
     void on_pushButton_help_clicked();
@@ -39,13 +42,19 @@ private slots:
 
     void on_actionopen_file_triggered();
 
-//    void onRemindersFileOpened();
-
     void on_pushButton_confirm_clicked();
 
     void addToFavourites();
 
+    void deleteDish();
+
     void on_tableView_customContextMenuRequested(const QPoint &pos);
+
+    void on_table_favourites_customContextMenuRequested(const QPoint &pos);
+
+    void on_tableView_doubleClicked(const QModelIndex &index);
+
+    void on_table_favourites_doubleClicked(const QModelIndex &index);
 
 private:
     Ui::MainWindow *ui;
@@ -57,6 +66,7 @@ protected:
     Diet* _diet;
     Basket* _basket;
     QMenu* _menu;
-//    QStringListModel* _model;
+    Favourites* _favourites;
+    About* _about;
 };
 #endif // MAINWINDOW_H

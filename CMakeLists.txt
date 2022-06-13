@@ -37,6 +37,11 @@ set(PROJECT_SOURCES
         myfiltermodel.cpp
         favourites.h
         favourites.cpp
+        about.h
+        about.cpp
+        about.ui
+        logo.h
+        logo.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

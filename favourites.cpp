@@ -1,22 +1,21 @@
 #include "favourites.h"
 
-Favourites::Favourites()
+Favourites::Favourites(Dishes* dishes, QObject *parent)
+    : QAbstractTableModel{parent}
+    , _dishes {dishes}
 {
-
 }
 
 
 int Favourites::rowCount(const QModelIndex &parent) const
 {
-//    return _storage.size();
-    return _dishes->getRow();
+    return _dishes->getFavourites().size();
 }
 
 
 int Favourites::columnCount(const QModelIndex &parent) const
 {
-//    return _dishes->getHeaders().size();
-    return _dishes->getColumn();
+    return _dishes->getHeaders().size();
 }
 
 
@@ -30,11 +29,11 @@ QVariant Favourites::data(const QModelIndex &index, int role) const
         return QVariant();
 }
 
-QVariant Favourites::headerData(int section, Qt::Orientation orientation, int role) const
-{
-    if (role == Qt::DisplayRole && orientation == Qt::Horizontal)
-        {
-            return _dishes->getHeaders().at(section);
-        }
-    return QVariant();
-}
+//QVariant Favourites::headerData(int section, Qt::Orientation orientation, int role) const
+//{
+//    if (role == Qt::DisplayRole && orientation == Qt::Horizontal)
+//        {
+//            return _dishes->getHeaders().at(section);
+//        }
+//    return QVariant();
+//}

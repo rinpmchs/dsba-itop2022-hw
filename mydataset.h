@@ -10,9 +10,6 @@ class MyDataset: public QAbstractTableModel
 public:
     MyDataset();
     explicit MyDataset(Dishes* dishes, QObject* parent = nullptr);
-//test
-
-public:
 
 private:
     Dishes* _dishes;

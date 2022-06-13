@@ -31,6 +31,7 @@ bool Dishes::loadFile(QFile& file)
             QList<QVariant> dish;
             fileLine = in.readLine();
             QStringList lineToken = fileLine.split(";", Qt::SkipEmptyParts);
+            _cuisines.insert(lineToken[3]);
             for(QString val : lineToken)
             {
                 dish.append(val);
@@ -47,21 +48,22 @@ bool Dishes::loadFile(QFile& file)
 
 QVariant Dishes::getFavourites(const QModelIndex& index)
 {
-    return _favourites.at(index.row()).at(index.column());//values().at(index.row()).at(index.column());
+    return _favourites.at(index.row()).at(index.column());
 }
 
-void Dishes::addToFavourites(size_t index)
+void Dishes::addToFavourites(int selected)
 {
-    QList<QVariant> dish = _storage.at(index - 1);
-    _favourites.append(dish);
+    QList<QVariant> dish = _storage.at(selected);
+    if(!(_favourites.contains(dish)))
+    {
+        _favourites.append(dish);
+        return;
+    }
+    return;
 }
 
-//void Dishes::deleteDish(QString dishName)
-//{
-//    for (QList<QVariant>& dish : _storage)
-//    {
-//        if (dish[0] == dishName)
-//            _storage.erase(&dish);
-//    }
-//}
-
+void Dishes::deleteFromFavourites(int selected)
+{
+    QList<QVariant> dish = _storage.at(selected);
+    _favourites.removeAt(selected);
+}

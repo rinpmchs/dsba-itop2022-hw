@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>806</width>
-    <height>569</height>
+    <width>900</width>
+    <height>700</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -137,73 +137,6 @@
       </item>
      </layout>
     </item>
-    <item row="5" column="0">
-     <widget class="QTableView" name="tableView">
-      <property name="selectionMode">
-       <enum>QAbstractItemView::ExtendedSelection</enum>
-      </property>
-      <property name="selectionBehavior">
-       <enum>QAbstractItemView::SelectRows</enum>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="0">
-     <layout class="QGridLayout" name="gridLayout_ingredients">
-      <item row="0" column="0">
-       <layout class="QHBoxLayout" name="horizontalLayout_include">
-        <item>
-         <widget class="QLabel" name="label_include">
-          <property name="text">
-           <string>RECIPE SHOULD CONTAIN:</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLineEdit" name="lineEdit_include"/>
-        </item>
-       </layout>
-      </item>
-      <item row="1" column="0">
-       <layout class="QHBoxLayout" name="horizontalLayout_exclude">
-        <item>
-         <widget class="QLabel" name="label_exclude">
-          <property name="text">
-           <string>EXCLUDE INGREDIENTS SUCH AS:</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLineEdit" name="lineEdit_exclude"/>
-        </item>
-       </layout>
-      </item>
-     </layout>
-    </item>
-    <item row="4" column="0">
-     <layout class="QHBoxLayout" name="horizontalLayout_buttons">
-      <item>
-       <widget class="QPushButton" name="pushButton_help">
-        <property name="text">
-         <string>?</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="pushButton_confirm">
-        <property name="text">
-         <string>CONFIRM</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="pushButton_settings">
-        <property name="text">
-         <string>SETTINGS</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
     <item row="2" column="0">
      <layout class="QHBoxLayout" name="horizontalLayout_courses">
       <item>
@@ -303,6 +236,89 @@
       </item>
      </layout>
     </item>
+    <item row="0" column="0">
+     <layout class="QGridLayout" name="gridLayout_ingredients">
+      <item row="0" column="0">
+       <layout class="QHBoxLayout" name="horizontalLayout_include">
+        <item>
+         <widget class="QLabel" name="label_include">
+          <property name="text">
+           <string>RECIPE SHOULD CONTAIN:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="lineEdit_include"/>
+        </item>
+       </layout>
+      </item>
+      <item row="1" column="0">
+       <layout class="QHBoxLayout" name="horizontalLayout_exclude">
+        <item>
+         <widget class="QLabel" name="label_exclude">
+          <property name="text">
+           <string>EXCLUDE INGREDIENTS SUCH AS:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="lineEdit_exclude"/>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+    <item row="4" column="0">
+     <layout class="QHBoxLayout" name="horizontalLayout_buttons">
+      <item>
+       <widget class="QPushButton" name="pushButton_help">
+        <property name="text">
+         <string>?</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_confirm">
+        <property name="text">
+         <string>CONFIRM</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_settings">
+        <property name="text">
+         <string>SETTINGS</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="7" column="0">
+     <widget class="QTableView" name="table_favourites">
+      <property name="selectionMode">
+       <enum>QAbstractItemView::SingleSelection</enum>
+      </property>
+      <property name="selectionBehavior">
+       <enum>QAbstractItemView::SelectRows</enum>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="0">
+     <widget class="QTableView" name="tableView">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>200</height>
+       </size>
+      </property>
+      <property name="selectionMode">
+       <enum>QAbstractItemView::SingleSelection</enum>
+      </property>
+      <property name="selectionBehavior">
+       <enum>QAbstractItemView::SelectRows</enum>
+      </property>
+     </widget>
+    </item>
     <item row="3" column="0">
      <layout class="QHBoxLayout" name="horizontalLayout_cuisines">
       <item>
@@ -324,6 +340,13 @@
       </item>
      </layout>
     </item>
+    <item row="6" column="0">
+     <widget class="QLabel" name="label">
+      <property name="text">
+       <string>FAVOURITES:</string>
+      </property>
+     </widget>
+    </item>
    </layout>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
@@ -332,7 +355,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>806</width>
+     <width>900</width>
      <height>22</height>
     </rect>
    </property>

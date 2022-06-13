@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>About</class>
+ <widget class="QDialog" name="About">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>419</width>
+    <height>533</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>about app</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="1" column="0">
+    <widget class="QTextEdit" name="textEdit">
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+     <property name="html">
+      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'.AppleSystemUIFont'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; font-family:'SymbolMT'; font-size:12pt;&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'TimesNewRomanPSMT';&quot;&gt;TEXT LINES: this allows you to enter an array of ingredients (“Butter Sugar Oil ...”) which the recipe will contain or will not contain.&lt;/span&gt;&lt;/li&gt;
+&lt;li style=&quot; font-family:'SymbolMT'; font-size:12pt;&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'TimesNewRomanPSMT';&quot;&gt;SLIDER: this allows you to choose the maximum time you will be ready to dedicate to the cooking process. It means that “prep_time” and “cook_time” are summed.&lt;/span&gt;&lt;/li&gt;
+&lt;li style=&quot; font-family:'SymbolMT'; font-size:12pt;&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'TimesNewRomanPSMT';&quot;&gt;CHECK BOXES: a series of check boxes allow you to choose the category of the dish. How many different courses there are the developer must find on his or her own. &lt;/span&gt;&lt;/li&gt;
+&lt;li style=&quot; font-family:'SymbolMT'; font-size:12pt;&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'TimesNewRomanPSMT';&quot;&gt;CUISINE SECTION: has two objects: a text line and a push button. By clicking on the last one, a new window with listView which informs you about types of cuisines available for selection appears. In the text line you are allowed to enter an array considering different registers. (“Mexican chinEse inDIan ...”).&lt;/span&gt;&lt;/li&gt;
+&lt;li style=&quot; font-family:'TimesNewRomanPSMT'; font-size:12pt;&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;SETTINGS BUTTON: a new window appears in which you can choose from a variety of radio boxes with the name “DIET”.&lt;/li&gt;
+&lt;li style=&quot; font-family:'TimesNewRomanPSMT'; font-size:12pt;&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;CONFIRM: a new window appears which contains the information about all the dishes that are suitable for you.&lt;/li&gt;
+&lt;li style=&quot; font-family:'TimesNewRomanPSMT'; font-size:12pt;&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;TABLES: there are the main table and table of favourites, where you can find an information about dishes.&lt;/li&gt;&lt;/ul&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:1; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Poppins','sans-serif'; font-size:11pt; color:#ffffff; background-color:rgba(0,0,0,0.07451);&quot;&gt;student ID: 132&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="0">
+    <widget class="QWidget" name="widget" native="true">
+     <property name="minimumSize">
+      <size>
+       <width>100</width>
+       <height>100</height>
+      </size>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
